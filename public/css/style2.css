@@ -1,0 +1,13 @@
+.komik p {
+    font-size: 12px;
+    text-align: center;
+    /* text-decoration: none; */
+}
+
+.checked {
+    color: orange;
+}
+
+.komik span {
+    width: 15%;
+}
