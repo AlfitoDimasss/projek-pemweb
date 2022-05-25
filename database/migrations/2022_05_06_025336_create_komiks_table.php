@@ -22,6 +22,7 @@ return new class extends Migration
             $table->foreignId('genre_id');
             $table->timestamps();
             $table->double('price');
+            $table->integer('rate');
         });
     }
 
