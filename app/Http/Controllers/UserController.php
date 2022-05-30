@@ -17,6 +17,7 @@ class UserController extends Controller
         if ($user->password == $password) {
             Session::put('user_id', $user->id);
             if ($user->user_type == 'admin') {
+                Session::put('admin', true);
                 return redirect('/admin');
             }
             return redirect('/');

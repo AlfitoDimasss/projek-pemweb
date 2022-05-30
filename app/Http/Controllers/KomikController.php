@@ -10,7 +10,9 @@ class KomikController extends Controller
 {
     public function index()
     {
-        if (Session::has('user_id')) {
+        if (Session::has('admin')) {
+            return redirect('/admin');
+        } else if (Session::has('user_id')) {
             $data = [
                 'komiks' => komik::all()
             ];
