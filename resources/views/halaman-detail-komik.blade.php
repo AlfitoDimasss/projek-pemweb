@@ -26,24 +26,20 @@
                     </div>
                     <div class="form-group">
                         <label for="date">Borrow Date</label>
-                        <input type="date" name="borrow_date" id="date" style="width: 100%;" class="form-control">
+                        <input type="date" name="date" id="date" style="width: 100%;" class="form-control">
                     </div>
                     <div class="form-group">
                         <p>Duration</p>
                         <div class="form-check form-check-inline mb-1">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                                value="option1">
+                            <input class="form-check-input" type="radio" name="durasi" id="inlineRadio1" value="7">
                             <label class="form-check-label" for="inlineRadio1">
-                                <div class="btn btn-light">7
-                                    Days</div>
+                                <div class="btn btn-light">7 Days</div>
                             </label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                                value="option2">
+                            <input class="form-check-input" type="radio" name="durasi" id="inlineRadio2" value="14">
                             <label class="form-check-label" for="inlineRadio2">
-                                <div class="btn btn-light">14
-                                    Days</div>
+                                <div class="btn btn-light">14 Days</div>
                             </label>
                         </div>
                     </div>
