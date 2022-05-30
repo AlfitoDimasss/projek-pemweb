@@ -50,6 +50,12 @@
     </nav>
     <div class="container mt-3">
         <a href="/admin/addKomik" class="btn btn-primary mb-2">Add Komik</a>
+        @if (\Session::has('success'))
+        <div class="alert alert-success">
+            {!! \Session::get('success') !!}
+        </div>
+        @endif
+        <a href="" class="btn btn-primary mb-2">Add Komik</a>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -75,9 +81,15 @@
                     <td style="vertical-align: middle"><img src="img/{{ $komik->cover }}" alt="" height="100"></td>
                     <td style="vertical-align: middle">$ {{ $komik->price }}</td>
                     <td style="vertical-align: middle">{{ $komik->rate }}</td>
-                    <td>
-                        <a href="" class="btn btn-warning">Edit</a>
-                        <a href="" class="btn btn-danger">Delete</a>
+                    <td style="vertical-align: middle">
+                        <form action="" class="d-inline">
+                            <button class="btn btn-warning">Edit</button>
+                        </form>
+                        <form action="/delete/{{ $komik->id }}" method="POST" class="d-inline"
+                            onclick="return confirm('Yakin?')">
+                            @csrf
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach

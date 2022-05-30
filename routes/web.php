@@ -47,3 +47,5 @@ Route::get('/admin/addKomik', [KomikController::class, 'create']);
 Route::post('/admin/store', [KomikController::class, 'store']);
 
 Route::get('/logout', [UserController::class, 'logout']);
+
+Route::post('/delete/{id}', [KomikController::class, 'destroy']);

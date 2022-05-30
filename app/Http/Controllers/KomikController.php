@@ -11,7 +11,9 @@ class KomikController extends Controller
 {
     public function index()
     {
-        if (Session::has('user_id')) {
+        if (Session::has('admin')) {
+            return redirect('/admin');
+        } else if (Session::has('user_id')) {
             $data = [
                 'komiks' => komik::all()
             ];
@@ -30,6 +32,7 @@ class KomikController extends Controller
         }
         return redirect('/login');
     }
+
 
     public function create()
     { 
@@ -63,5 +66,9 @@ class KomikController extends Controller
         $cover->move($tujuan_upload, $cover->getClientOriginalName());
 
         $inputKomik->save();
+    public function destroy($id)
+    {
+        komik::destroy($id);
+        return redirect('/admin')->with('success', 'Komik berhasil dihapus');
     }
 }
