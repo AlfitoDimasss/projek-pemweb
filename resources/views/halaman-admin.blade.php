@@ -49,7 +49,7 @@
         </div>
     </nav>
     <div class="container mt-3">
-        <a href="" class="btn btn-primary mb-2">Add Komik</a>
+        <a href="/admin/addKomik" class="btn btn-primary mb-2">Add Komik</a>
         <table class="table table-striped">
             <thead>
                 <tr>
