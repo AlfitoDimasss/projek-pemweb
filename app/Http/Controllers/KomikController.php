@@ -29,4 +29,10 @@ class KomikController extends Controller
         }
         return redirect('/login');
     }
+
+    public function destroy($id)
+    {
+        komik::destroy($id);
+        return redirect('/admin')->with('success', 'Komik berhasil dihapus');
+    }
 }

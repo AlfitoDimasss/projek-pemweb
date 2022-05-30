@@ -43,3 +43,5 @@ Route::post('/prosesReservasi', [ReservationController::class, 'create']);
 Route::get('/admin', [UserController::class, 'indexAdmin']);
 
 Route::get('/logout', [UserController::class, 'logout']);
+
+Route::post('/delete/{id}', [KomikController::class, 'destroy']);
