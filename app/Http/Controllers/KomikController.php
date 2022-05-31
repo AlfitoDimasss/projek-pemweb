@@ -20,6 +20,42 @@ class KomikController extends Controller
         return redirect('/login');
     }
 
+    public function indexAction()
+    {
+        if (Session::has('user_id')) {
+            $data = [
+                'komiks' => komik::where('genre_id', 1)->get(),
+                'title' => 'Action Comics'
+            ];
+            return view('halaman-komik-per-genre', $data);
+        }
+        return redirect('/login');
+    }
+
+    public function indexAdventure()
+    {
+        if (Session::has('user_id')) {
+            $data = [
+                'komiks' => komik::where('genre_id', 2)->get(),
+                'title' => 'Adventure Comics'
+            ];
+            return view('halaman-komik-per-genre', $data);
+        }
+        return redirect('/login');
+    }
+
+    public function indexDrama()
+    {
+        if (Session::has('user_id')) {
+            $data = [
+                'komiks' => komik::where('genre_id', 3)->get(),
+                'title' => 'Drama Comics'
+            ];
+            return view('halaman-komik-per-genre', $data);
+        }
+        return redirect('/login');
+    }
+
     public function detail($id)
     {
         if (Session::has('user_id')) {

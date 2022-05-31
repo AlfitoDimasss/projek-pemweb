@@ -13,6 +13,16 @@
             <li class="nav-item">
                 <a href="/" class="nav-link">Index</a>
             </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    Genre
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/action">Action</a>
+                    <a class="dropdown-item" href="/adventure">Adventure</a>
+                    <a class="dropdown-item" href="/drama">Drama</a>
+                </div>
+            </li>
             <li class="nav-item">
                 <a href="/reservations" class="nav-link">Reservations</a>
             </li>

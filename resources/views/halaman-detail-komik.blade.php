@@ -4,7 +4,6 @@
     .komik p {
         font-size: 12px;
         text-align: center;
-        /* text-decoration: none; */
     }
 
     .checked {
@@ -13,6 +12,10 @@
 
     .komik span {
         width: 15%;
+    }
+
+    .keterangan-harga {
+        font-size: 12px;
     }
 </style>
 @endsection
@@ -26,7 +29,7 @@
             <h1>{{ $komik->title }}</h1>
             <span class="fa fa-star checked"></span>
             <span>{{ $komik->rate }} | {{ $komik->genre->genre }}</span>
-            <h4 style="font-weight: bold" class="mt-1">$ {{ $komik->price }}</h4>
+            <h4 style="font-weight: bold" class="mt-1" id="price">$ {{ $komik->price }}</h4>
             <hr>
             <h5>Synopsis</h5>
             <p>{{ $komik->synopsis }}</p>
@@ -60,9 +63,9 @@
                             </label>
                         </div>
                     </div>
-                    <div class="d-flex flex-row">
-                        <p>Total Amount</p>
-                        <p class="ml-auto">14 Days</p>
+                    <div class="d-flex flex-row keterangan-harga">
+                        <p id="amount">Total Amount</p>
+                        <p class="ml-auto" id="day-choosen"></p>
                     </div>
                     <input type="hidden" name="komik_id" value="{{ $komik->id }}">
                     <input type="hidden" name="user_id" value="{{ Session::get('user_id') }}">
@@ -74,4 +77,29 @@
         </div>
     </div>
 </div>
+@endsection
+@section('js')
+<script>
+    $(function(){
+        let price = $('#price').text();
+        price = price.substring(1);
+        
+        $('#inlineRadio1').click(function(){
+            let q = $('#quantity').val();
+            $('#amount').text(`Total Amount + Fee: $${price * q + 5}`);
+            $('#day-choosen').text("7 Days");
+        });
+
+        $('#inlineRadio2').click(function(){
+            let q = $('#quantity').val();
+            $('#amount').text(`Total Amount + Fee: $${price * q + 7}`);
+            $('#day-choosen').text("14 Days");
+        });
+
+        $('#quantity').keyup(function(){
+            let q = $('#quantity').val();
+            $('#amount').text(`Total Amount + Fee: $${price * q}`);
+        });
+    });
+</script>
 @endsection

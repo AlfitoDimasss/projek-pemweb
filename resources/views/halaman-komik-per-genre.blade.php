@@ -19,15 +19,11 @@
     }
 </style>
 @section('container')
-<div class="container-fluid">
-    <div class="container mx-auto border my-5 d-flex justify-content-center align-items-center banner"
-        style="height: 200px; border-radius: 20px">
-        <h1 class="text-center">Banners</h1>
-    </div>
+<div class="container-fluid mt-3">
     <div class="container mx-auto">
         <div class="row">
             <div class="container">
-                <h5>All Comics</h5>
+                <h5>{{ $title }}</h5>
             </div>
             @foreach ($komiks as $komik)
             <div class="col-2 d-flex flex-column komik align-items-center justify-content-center text-center">

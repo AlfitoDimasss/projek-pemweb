@@ -22,6 +22,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [KomikController::class, 'index']);
 
+Route::get('/action', [KomikController::class, 'indexAction']);
+
+Route::get('/adventure', [KomikController::class, 'indexAdventure']);
+
+Route::get('/drama', [KomikController::class, 'indexDrama']);
+
 Route::get('/reservations', [ReservationController::class, 'index']);
 
 // Route::get('/receipt', function () {
