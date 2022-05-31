@@ -1,9 +1,28 @@
 @extends('layouts.main')
+@section('css')
+<style>
+    .banner {
+        background-color: salmon;
+    }
+
+    .komik p {
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .checked {
+        color: orange;
+    }
+
+    .komik span {
+        width: 15%;
+    }
+</style>
 @section('container')
 <div class="container-fluid border">
-    <div class="container mx-auto border my-5 bg-primary d-flex justify-content-center align-items-center"
+    <div class="container mx-auto border my-5 d-flex justify-content-center align-items-center banner"
         style="height: 200px; border-radius: 20px">
-        <h1 class="text-center">Banner</h1>
+        <h1 class="text-center">Banners</h1>
     </div>
     <div class="container mx-auto">
         <div class="row">

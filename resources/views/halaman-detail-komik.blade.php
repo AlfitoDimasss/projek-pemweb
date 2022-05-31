@@ -1,4 +1,21 @@
 @extends('layouts.main')
+@section('css')
+<style>
+    .komik p {
+        font-size: 12px;
+        text-align: center;
+        /* text-decoration: none; */
+    }
+
+    .checked {
+        color: orange;
+    }
+
+    .komik span {
+        width: 15%;
+    }
+</style>
+@endsection
 @section('container')
 <div class="container-fluid mt-5">
     <div class="row">
@@ -7,7 +24,7 @@
         </div>
         <div class="col-5">
             <h1>{{ $komik->title }}</h1>
-            <span class="fa fa-star" style="color: orange;"></span>
+            <span class="fa fa-star checked"></span>
             <span>{{ $komik->rate }} | {{ $komik->genre->genre }}</span>
             <h4 style="font-weight: bold" class="mt-1">$ {{ $komik->price }}</h4>
             <hr>

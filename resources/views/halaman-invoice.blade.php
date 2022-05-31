@@ -1,4 +1,25 @@
 @extends('layouts.main')
+@section('css')
+<style>
+    .header {
+        background-image: linear-gradient(to right, #36b093, #08c58e);
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .caption {
+        font-size: 12px;
+    }
+
+    #alamat {
+        font-size: 8px;
+    }
+
+    #order {
+        margin-right: 20px;
+    }
+</style>
+@endsection
 @section('container')
 <div class="container mt-5">
     <div class="row text-white">
