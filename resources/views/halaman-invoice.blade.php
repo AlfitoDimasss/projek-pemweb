@@ -21,7 +21,7 @@
 </style>
 @endsection
 @section('container')
-<div class="container mt-5">
+<div class="container mt-5" style="min-height: 650px">
     <div class="row text-white">
         <div class="col-lg-6 mx-auto header">
             <div class="row">

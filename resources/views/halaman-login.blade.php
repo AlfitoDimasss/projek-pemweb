@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('container')
-<div class="container mt-3">
+<div class="container mt-3" style="min-height: 560px">
     <div class="row">
         <div class="col-5 mx-auto border">
             <h1 class="text-center">Login</h1>

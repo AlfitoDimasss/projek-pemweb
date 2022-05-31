@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('container')
-<div class="container mt-3">
+<div class="container mt-3" style="min-height: 550px;">
     @if (\Session::has('success'))
     <div class="alert alert-success">
         {!! \Session::get('success') !!}
@@ -27,7 +27,7 @@
                 <th scope="row" style="vertical-align: middle">{{ $komik->id }}</th>
                 <td style="vertical-align: middle">{{ $komik->title }}</td>
                 <td style="vertical-align: middle">{{ $komik->author }}</td>
-                <td style="vertical-align: middle">{{ Str::limit($komik->synopsis, 50) }}</td>
+                <td style="vertical-align: middle">{{ Str::limit($komik->synopsis, 30) }}</td>
                 <td style="vertical-align: middle">{{ $komik->genre->genre }}</td>
                 <td style="vertical-align: middle"><img src="img/{{ $komik->cover }}" alt="" height="100"></td>
                 <td style="vertical-align: middle">$ {{ $komik->price }}</td>

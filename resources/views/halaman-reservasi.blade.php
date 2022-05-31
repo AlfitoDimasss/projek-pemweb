@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('container')
 {{-- @dd($reservations) --}}
-<div class="container">
+<div class="container" style="min-height: 535px;">
     <table class="table table-striped">
         <thead>
             <tr>

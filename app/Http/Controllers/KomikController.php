@@ -11,49 +11,37 @@ class KomikController extends Controller
 {
     public function index()
     {
-        if (Session::has('user_id')) {
-            $data = [
-                'komiks' => komik::all()
-            ];
-            return view('halaman-utama', $data);
-        }
-        return redirect('/login');
+        $data = [
+            'komiks' => komik::all()
+        ];
+        return view('halaman-utama', $data);
     }
 
     public function indexAction()
     {
-        if (Session::has('user_id')) {
-            $data = [
-                'komiks' => komik::where('genre_id', 1)->get(),
-                'title' => 'Action Comics'
-            ];
-            return view('halaman-komik-per-genre', $data);
-        }
-        return redirect('/login');
+        $data = [
+            'komiks' => komik::where('genre_id', 1)->get(),
+            'title' => 'Action Comics'
+        ];
+        return view('halaman-komik-per-genre', $data);
     }
 
     public function indexAdventure()
     {
-        if (Session::has('user_id')) {
-            $data = [
-                'komiks' => komik::where('genre_id', 2)->get(),
-                'title' => 'Adventure Comics'
-            ];
-            return view('halaman-komik-per-genre', $data);
-        }
-        return redirect('/login');
+        $data = [
+            'komiks' => komik::where('genre_id', 2)->get(),
+            'title' => 'Adventure Comics'
+        ];
+        return view('halaman-komik-per-genre', $data);
     }
 
     public function indexDrama()
     {
-        if (Session::has('user_id')) {
-            $data = [
-                'komiks' => komik::where('genre_id', 3)->get(),
-                'title' => 'Drama Comics'
-            ];
-            return view('halaman-komik-per-genre', $data);
-        }
-        return redirect('/login');
+        $data = [
+            'komiks' => komik::where('genre_id', 3)->get(),
+            'title' => 'Drama Comics'
+        ];
+        return view('halaman-komik-per-genre', $data);
     }
 
     public function detail($id)

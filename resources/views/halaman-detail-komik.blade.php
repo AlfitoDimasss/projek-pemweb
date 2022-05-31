@@ -20,7 +20,7 @@
 </style>
 @endsection
 @section('container')
-<div class="container-fluid mt-5">
+<div class="container-fluid mt-5" style="min-height: 650px">
     <div class="row">
         <div class="col-4 d-flex justify-content-center">
             <img src="../img/{{ $komik->cover }}" alt="" style="width: 75%;">

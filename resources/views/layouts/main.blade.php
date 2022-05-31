@@ -21,11 +21,13 @@
 <body>
     @if(Session::has('admin'))
     @include('partials.navbar-admin')
-    @else
+    @elseif(Session::has('user_id'))
     @include('partials.navbar')
+    @else
+    @include('partials.navbar-login')
     @endif
     @yield('container')
-
+    @include('partials.footer')
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">

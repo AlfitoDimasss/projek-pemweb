@@ -1,10 +1,6 @@
 @extends('layouts.main')
 @section('css')
 <style>
-    .banner {
-        background-color: salmon;
-    }
-
     .komik p {
         font-size: 12px;
         text-align: center;
@@ -17,12 +13,32 @@
     .komik span {
         width: 15%;
     }
+
+    .banner img {
+        width: 80%;
+        margin-left: 25%;
+    }
+
+    .banner h2 {
+        font-weight: bold;
+    }
 </style>
 @section('container')
-<div class="container-fluid">
-    <div class="container mx-auto border my-5 d-flex justify-content-center align-items-center banner"
+<div class="container-fluid" style="min-height: 535px;">
+    <div class="container mx-auto my-5 d-flex justify-content-center bg-success align-items-center banner text-white"
         style="height: 200px; border-radius: 20px">
-        <h1 class="text-center">Banners</h1>
+        <div class="row w-100">
+            <div class="col-1"></div>
+            <div class="col-6 p-5 description">
+                <h2>Get all the comics you want</h2>
+                <p>Rent comics is now easier with online reservation</p>
+                <a href="" class="btn btn-dark">Check My Reservations</a>
+            </div>
+            <div class="col-4">
+                <img src="img/banner-illus.png" alt="">
+            </div>
+            <div class="col-1"></div>
+        </div>
     </div>
     <div class="container mx-auto">
         <div class="row">
