@@ -18,8 +18,11 @@
 </head>
 
 <body>
-
+    @if(Session::has('admin'))
+    @include('partials.navbar-admin')
+    @else
     @include('partials.navbar')
+    @endif
     @yield('container')
 
     <!-- Option 1: Bootstrap Bundle with Popper -->

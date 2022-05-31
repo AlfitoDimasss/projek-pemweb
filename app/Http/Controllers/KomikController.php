@@ -11,9 +11,7 @@ class KomikController extends Controller
 {
     public function index()
     {
-        if (Session::has('admin')) {
-            return redirect('/admin');
-        } else if (Session::has('user_id')) {
+        if (Session::has('user_id')) {
             $data = [
                 'komiks' => komik::all()
             ];
@@ -35,20 +33,14 @@ class KomikController extends Controller
 
 
     public function create()
-    { 
-        return view('halaman-admin-addKomik',[
-            'genres' => genre::all(
-        )]);
+    {
+        return view('halaman-admin-addKomik', [
+            'genres' => genre::all()
+        ]);
     }
 
     public function store(Request $request)
     {
-
-        // setup for img
-        // $filenameWithExt = $request->file('cover')->getClientOriginalName();
-        // $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-        // $extension = $request->file('cover')->getClientOriginalExtension();
-        // $filenameSimpan = $filename.'_'.time().'.'.$extension;
         $cover = $request->file('cover');
 
         // new komik to store request
@@ -66,6 +58,9 @@ class KomikController extends Controller
         $cover->move($tujuan_upload, $cover->getClientOriginalName());
 
         $inputKomik->save();
+        return redirect('/admin')->with('success', 'Komik berhasil ditambahkan');
+    }
+
     public function destroy($id)
     {
         komik::destroy($id);
