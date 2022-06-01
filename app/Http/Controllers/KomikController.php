@@ -5,16 +5,22 @@ namespace App\Http\Controllers;
 use App\Models\komik;
 use App\Models\genre;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class KomikController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $data = [
             'komiks' => komik::all()
         ];
+        if ($request!=null) {
+            $titleSearch = $request->input('search');
+            $data['komiks'] = komik::query()->where('title','LIKE',"%{$titleSearch}%")->get();
+        }
         return view('halaman-utama', $data);
+        
     }
 
     public function detail($id)
