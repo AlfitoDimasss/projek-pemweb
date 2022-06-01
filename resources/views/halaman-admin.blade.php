@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('container')
-<div class="container mt-3" style="min-height: 550px;">
+<div class="container mt-3" style="min-height: 560px;">
     @if (\Session::has('success'))
     <div class="alert alert-success">
         {!! \Session::get('success') !!}
@@ -33,7 +33,8 @@
                 <td style="vertical-align: middle">$ {{ $komik->price }}</td>
                 <td style="vertical-align: middle">{{ $komik->rate }}</td>
                 <td style="vertical-align: middle">
-                    <form action="" class="d-inline">
+                    <form action="/edit/{{ $komik->id }}" method="POST" class="d-inline">
+                        @csrf
                         <button class="btn btn-warning">Edit</button>
                     </form>
                     <form action="/delete/{{ $komik->id }}" method="POST" class="d-inline"

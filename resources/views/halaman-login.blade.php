@@ -2,7 +2,7 @@
 @section('container')
 <div class="container mt-3" style="min-height: 560px">
     <div class="row">
-        <div class="col-5 mx-auto border">
+        <div class="col-5 mx-auto mt-5">
             <h1 class="text-center">Login</h1>
             <form action="/prosesLogin" method="POST">
                 @csrf

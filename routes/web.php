@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GenreController;
 use App\Http\Controllers\KomikController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\UserController;
@@ -22,11 +23,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [KomikController::class, 'index']);
 
-Route::get('/action', [KomikController::class, 'indexAction']);
+Route::get('/action', [GenreController::class, 'indexAction']);
 
-Route::get('/adventure', [KomikController::class, 'indexAdventure']);
+Route::get('/adventure', [GenreController::class, 'indexAdventure']);
 
-Route::get('/drama', [KomikController::class, 'indexDrama']);
+Route::get('/drama', [GenreController::class, 'indexDrama']);
 
 Route::get('/reservations', [ReservationController::class, 'index']);
 
@@ -52,6 +53,10 @@ Route::get('/admin/addKomik', [KomikController::class, 'create']);
 
 Route::post('/admin/store', [KomikController::class, 'store']);
 
+Route::post('/admin/edit', [KomikController::class, 'storeEdit']);
+
 Route::get('/logout', [UserController::class, 'logout']);
 
 Route::post('/delete/{id}', [KomikController::class, 'destroy']);
+
+Route::post('/edit/{id}', [KomikController::class, 'edit']);

@@ -12,12 +12,12 @@
     }
 
     #alamat {
-        font-size: 8px;
+        font-size: 10px;
     }
 
-    #order {
+    /* #order {
         margin-right: 20px;
-    }
+    } */
 </style>
 @endsection
 @section('container')
@@ -34,10 +34,10 @@
                 <div class="col-4 d-flex align-items-end">
                     <p class="ms-n5 caption">reservation ID: {{ $res->id }}</p>
                 </div>
-                <div class="col-4">
+                <div class="col-4 ml-n4">
                     <div class="container">
-                        <h1 class="mt-4">Bookuy</h1>
-                        <p id="alamat" class="caption">Jl. Flamboyan 8, Serang, Kota Serang</p>
+                        <h1 class="mt-4">KomikKu</h1>
+                        <p id="alamat" class="caption">Your comic rental solution</p>
                     </div>
                 </div>
             </div>
@@ -100,18 +100,25 @@
                         <table class="table">
                             <tbody>
                                 <tr>
-                                    <td scope="col">SUBTOTAL</td>
+                                    <td scope="col">Subtotal</td>
                                     <th scope="col">${{ ($res->komik->price) * ($res->quantity) }}</th>
                                 </tr>
                                 <tr>
-                                    <td scope="col">TAXES</td>
-                                    <th scope="col">${{ ((($res->komik->price) * ($res->quantity)) * 10) / 100 }}</th>
+                                    <td scope="col">Booking Fee</td>
+                                    <th scope="col">$1</th>
+                                </tr>
+                                <tr>
+                                    @if($res->duration == 7)
+                                    <td scope="col">Rent For 7 Days</td>
+                                    <th scope="col">$3</th>
+                                    @else
+                                    <td scope="col">Rent For 14 Days</td>
+                                    <th scope="col">$5</th>
+                                    @endif
                                 </tr>
                                 <tr>
                                     <th scope="col">TOTAL</th>
-                                    <th scope="col">${{ (($res->komik->price) * ($res->quantity)) +
-                                        (((($res->komik->price)
-                                        * ($res->quantity)) * 10) / 100) }}</th>
+                                    <th scope="col">${{ (($res->komik->price) * ($res->quantity)) + 1 + 3}}</th>
                                 </tr>
                             </tbody>
                         </table>

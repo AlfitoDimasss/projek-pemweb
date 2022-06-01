@@ -19,7 +19,7 @@
     }
 </style>
 @section('container')
-<div class="container-fluid mt-3" style="min-height: 535px">
+<div class="container-fluid mt-3" style="min-height: 545px">
     <div class="container mx-auto">
         <div class="row">
             <div class="container">

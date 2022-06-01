@@ -32,7 +32,7 @@
             <div class="col-6 p-5 description">
                 <h2>Get all the comics you want</h2>
                 <p>Rent comics is now easier with online reservation</p>
-                <a href="" class="btn btn-dark">Check My Reservations</a>
+                <a href="/reservations" class="btn btn-dark">Check My Reservations</a>
             </div>
             <div class="col-4">
                 <img src="img/banner-illus.png" alt="">

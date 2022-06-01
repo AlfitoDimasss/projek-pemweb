@@ -17,33 +17,6 @@ class KomikController extends Controller
         return view('halaman-utama', $data);
     }
 
-    public function indexAction()
-    {
-        $data = [
-            'komiks' => komik::where('genre_id', 1)->get(),
-            'title' => 'Action Comics'
-        ];
-        return view('halaman-komik-per-genre', $data);
-    }
-
-    public function indexAdventure()
-    {
-        $data = [
-            'komiks' => komik::where('genre_id', 2)->get(),
-            'title' => 'Adventure Comics'
-        ];
-        return view('halaman-komik-per-genre', $data);
-    }
-
-    public function indexDrama()
-    {
-        $data = [
-            'komiks' => komik::where('genre_id', 3)->get(),
-            'title' => 'Drama Comics'
-        ];
-        return view('halaman-komik-per-genre', $data);
-    }
-
     public function detail($id)
     {
         if (Session::has('user_id')) {
@@ -85,9 +58,43 @@ class KomikController extends Controller
         return redirect('/admin')->with('success', 'Komik berhasil ditambahkan');
     }
 
+    public function storeEdit(Request $request)
+    {
+        $id = $request->input('id');
+        if ($request->file('cover') != null) {
+            $cover = $request->file('cover');
+            $namaCover = $cover->getClientOriginalName();
+            $tujuan_upload = 'img/';
+            $cover->move($tujuan_upload, $cover->getClientOriginalName());
+        } else {
+            $namaCover = $request->input('old-cover');
+        }
+
+        $data = [
+            'title' => $request->input('title'),
+            'author' => $request->input('author'),
+            'synopsis' => $request->input('synopsis'),
+            'cover' => $namaCover,
+            'genre_id' => $request->input('genre_id'),
+            'price' => $request->input('price'),
+            'rate' => $request->input('rate')
+        ];
+        komik::where('id', $id)->update($data);
+        return redirect('/admin')->with('success', 'Komik berhasil diedit');
+    }
+
     public function destroy($id)
     {
         komik::destroy($id);
         return redirect('/admin')->with('success', 'Komik berhasil dihapus');
+    }
+
+    public function edit($id)
+    {
+        $data = [
+            "komik" => komik::where('id', $id)->first(),
+            'genres' => genre::all()
+        ];
+        return view('halaman-admin-editKomik', $data);
     }
 }

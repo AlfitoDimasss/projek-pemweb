@@ -70,7 +70,7 @@
                     <input type="hidden" name="komik_id" value="{{ $komik->id }}">
                     <input type="hidden" name="user_id" value="{{ Session::get('user_id') }}">
                     <div class="d-flex justify-content-center">
-                        <input type="submit" value="Book Now" class="btn btn-warning">
+                        <input type="submit" value="Book Now" class="btn btn-success">
                     </div>
                 </form>
             </div>
