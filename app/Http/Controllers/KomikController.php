@@ -46,13 +46,16 @@ class KomikController extends Controller
         $inputKomik->title = $request->input('title');
         $inputKomik->author = $request->input('author');
         $inputKomik->synopsis = $request->input('synopsis');
-        $inputKomik->cover = $cover->getClientOriginalName();
         $inputKomik->genre_id = $request->input('genre_id');
         $inputKomik->price = $request->input('price');
         $inputKomik->rate = $request->input('rate');
-
-        $tujuan_upload = 'img/';
-        $cover->move($tujuan_upload, $cover->getClientOriginalName());
+        $inputKomik->cover = 'defaultimg.jpg';
+        if ($cover!=null) {
+            $inputKomik->cover = $cover->getClientOriginalName();
+            $tujuan_upload = 'img/';
+            $cover->move($tujuan_upload, $cover->getClientOriginalName());
+        }
+        
 
         $inputKomik->save();
         return redirect('/admin')->with('success', 'Komik berhasil ditambahkan');
