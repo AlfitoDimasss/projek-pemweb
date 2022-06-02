@@ -7,16 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class reservation extends Model
 {
-    use HasFactory;
-    protected $guarded = ['id'];
+  use HasFactory;
+  protected $guarded = ['id'];
 
-    public function komik()
-    {
-        return $this->belongsTo(komik::class);
-    }
+  public function komik()
+  {
+    return $this->belongsTo(komik::class);
+  }
 
-    public function user()
-    {
-        return $this->belongsTo(user::class);
-    }
+  public function user()
+  {
+    return $this->belongsTo(user::class);
+  }
 }
