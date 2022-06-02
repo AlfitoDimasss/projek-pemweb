@@ -10,18 +10,18 @@ use Illuminate\Support\Facades\Session;
 
 class KomikController extends Controller
 {
-    public function index(Request $request)
-    {
-        $data = [
-            'komiks' => komik::all()
-        ];
-        if ($request!=null) {
-            $titleSearch = $request->input('search');
-            $data['komiks'] = komik::query()->where('title','LIKE',"%{$titleSearch}%")->get();
+        public function index(Request $request)
+        {
+            $data = [
+                'komiks' => komik::all()
+            ];
+            if ($request!=null) {
+                $titleSearch = $request->input('search');
+                $data['komiks'] = komik::query()->where('title','LIKE',"%{$titleSearch}%")->get();
+            }
+            return view('halaman-utama', $data);
+            
         }
-        return view('halaman-utama', $data);
-        
-    }
 
     public function detail($id)
     {
