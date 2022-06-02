@@ -10,7 +10,7 @@
         <th scope="col">Email</th>
         <th scope="col">Komik</th>
         <th scope="col">Cover</th>
-        <th scope="col">Receipt</th>
+        <th scope="col">Invoice</th>
       </tr>
     </thead>
     <tbody>

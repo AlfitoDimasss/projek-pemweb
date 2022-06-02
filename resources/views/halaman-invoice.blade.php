@@ -23,7 +23,7 @@
       <div class="row">
         <div class="col-4">
           <div class="container">
-            <h1 class="ms-2 mt-4">Receipt</h1>
+            <h1 class="ms-2 mt-4">Invoice</h1>
             <p class="ms-2 caption">{{ $res->created_at }}</p>
           </div>
         </div>
@@ -74,51 +74,47 @@
   <div class="row">
     <div class="col-lg-6 mx-auto border">
       <div class="row">
-        <div class="col-lg-6 border">
-          <div class="container">
-            <table class="table">
-              <tbody>
-                <tr>
-                  <td scope="col">CUSTOMER DETAIL</td>
-                </tr>
-                <tr>
-                  <td>
-                    <p>{{ $res->user->name }}</p>
-                    <p>{{ $res->user->email }}</p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+        <div class="col-lg-6">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td>CUSTOMER DETAIL</td>
+              </tr>
+              <tr>
+                <td>
+                  <p>{{ $res->user->name }}</p>
+                  <p>{{ $res->user->email }}</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <div class="col-lg-6 border">
-          <div class="container">
-            <table class="table">
-              <tbody>
-                <tr>
-                  <td scope="col">Subtotal</td>
-                  <th scope="col">${{ ($res->komik->price) * ($res->quantity) }}</th>
-                </tr>
-                <tr>
-                  <td scope="col">Booking Fee</td>
-                  <th scope="col">$1</th>
-                </tr>
-                <tr>
-                  @if($res->duration == 7)
-                  <td scope="col">Rent For 7 Days</td>
-                  <th scope="col">$3</th>
-                  @else
-                  <td scope="col">Rent For 14 Days</td>
-                  <th scope="col">$5</th>
-                  @endif
-                </tr>
-                <tr>
-                  <th scope="col">TOTAL</th>
-                  <th scope="col">${{ (($res->komik->price) * ($res->quantity)) + 1 + 3}}</th>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <table class="table">
+            <tbody>
+              <tr>
+                <td scope="col">Subtotal</td>
+                <th scope="col">${{ ($res->komik->price) * ($res->quantity) }}</th>
+              </tr>
+              <tr>
+                <td scope="col">Booking Fee</td>
+                <th scope="col">$1</th>
+              </tr>
+              <tr>
+                @if($res->duration == 7)
+                <td scope="col">Rent For 7 Days</td>
+                <th scope="col">$3</th>
+                @else
+                <td scope="col">Rent For 14 Days</td>
+                <th scope="col">$5</th>
+                @endif
+              </tr>
+              <tr>
+                <th scope="col">TOTAL</th>
+                <th scope="col">${{ (($res->komik->price) * ($res->quantity)) + 1 + 3}}</th>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
