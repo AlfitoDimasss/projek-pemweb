@@ -61,10 +61,10 @@ Route::post('/delete/{id}', [KomikController::class, 'destroy']);
 
 Route::post('/edit/{id}', [KomikController::class, 'edit']);
 
-Route::get('/admin/allUser',[UserController::class, 'getAllUser']);
+Route::get('/admin/allUser', [UserController::class, 'getAllUser']);
 
 Route::post('/edit/isadmin/{id}', [userController::class, 'setIsAdmin']);
 
 Route::post('/delete/user/{id}', [userController::class, 'destroy']);
 
-Route::get('/admin/transaction/{id}',[ReservationController::class, 'adminShow']);
+Route::get('/admin/transaction/{id}', [ReservationController::class, 'adminShow']);

@@ -14,10 +14,6 @@
   #alamat {
     font-size: 10px;
   }
-
-  /* #order {
-        margin-right: 20px;
-    } */
 </style>
 @endsection
 @section('container')

@@ -27,16 +27,15 @@ class ReservationController extends Controller
       ];
       return view('halaman-invoice', $data);
     }
-    
-    public function adminShow($userid)
-    {
-        if (Session::has('user_id')) {
-            $data = [
-                "reservations" => reservation::where('user_id', $userid)->get()
-            ];
-            return view('halaman-reservasi', $data);
-        }
-        return redirect('/login');
+  }
+
+  public function adminShow($userid)
+  {
+    if (Session::has('user_id')) {
+      $data = [
+        "reservations" => reservation::where('user_id', $userid)->get()
+      ];
+      return view('halaman-reservasi', $data);
     }
     return redirect('/login');
   }
