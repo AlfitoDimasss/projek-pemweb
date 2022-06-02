@@ -35,7 +35,7 @@
         </ul>
         <ul class="navbar-nav mx-auto">
             <form class="form-inline" action="">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" name="search">
                 <button class="btn btn-success" type="submit">Search</button>
             </form>
         </ul>
