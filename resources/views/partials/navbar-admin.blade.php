@@ -23,8 +23,14 @@
                     <a class="dropdown-item" href="/drama">Drama</a>
                 </div>
             </li>
-            <li class="nav-item">
-                <a href="/admin" class="nav-link">Admin</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    Admin
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/admin">daftar komik</a>
+                    <a class="dropdown-item" href="/admin/allUser">daftar user</a>
+                </div>
             </li>
         </ul>
         <ul class="navbar-nav mx-auto">

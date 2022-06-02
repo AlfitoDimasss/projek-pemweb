@@ -29,6 +29,17 @@ class ReservationController extends Controller
         }
         return redirect('/login');
     }
+    
+    public function adminShow($userid)
+    {
+        if (Session::has('user_id')) {
+            $data = [
+                "reservations" => reservation::where('user_id', $userid)->get()
+            ];
+            return view('halaman-reservasi', $data);
+        }
+        return redirect('/login');
+    }
 
     public function create(Request $req)
     {
@@ -52,4 +63,5 @@ class ReservationController extends Controller
         }
         return redirect('/login');
     }
+
 }
