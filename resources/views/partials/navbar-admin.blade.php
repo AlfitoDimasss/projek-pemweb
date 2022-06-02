@@ -23,13 +23,19 @@
                     <a class="dropdown-item" href="/drama">Drama</a>
                 </div>
             </li>
-            <li class="nav-item">
-                <a href="/admin" class="nav-link">Admin</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    Admin
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/admin">daftar komik</a>
+                    <a class="dropdown-item" href="/admin/allUser">daftar user</a>
+                </div>
             </li>
         </ul>
         <ul class="navbar-nav mx-auto">
             <form class="form-inline" action="">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" name="search">
                 <button class="btn btn-success" type="submit">Search</button>
             </form>
         </ul>

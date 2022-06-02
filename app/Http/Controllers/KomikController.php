@@ -5,17 +5,23 @@ namespace App\Http\Controllers;
 use App\Models\komik;
 use App\Models\genre;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class KomikController extends Controller
 {
-    public function index()
-    {
-        $data = [
-            'komiks' => komik::all()
-        ];
-        return view('halaman-utama', $data);
-    }
+        public function index(Request $request)
+        {
+            $data = [
+                'komiks' => komik::all()
+            ];
+            if ($request!=null) {
+                $titleSearch = $request->input('search');
+                $data['komiks'] = komik::query()->where('title','LIKE',"%{$titleSearch}%")->get();
+            }
+            return view('halaman-utama', $data);
+            
+        }
 
     public function detail($id)
     {
@@ -46,13 +52,16 @@ class KomikController extends Controller
         $inputKomik->title = $request->input('title');
         $inputKomik->author = $request->input('author');
         $inputKomik->synopsis = $request->input('synopsis');
-        $inputKomik->cover = $cover->getClientOriginalName();
         $inputKomik->genre_id = $request->input('genre_id');
         $inputKomik->price = $request->input('price');
         $inputKomik->rate = $request->input('rate');
-
-        $tujuan_upload = 'img/';
-        $cover->move($tujuan_upload, $cover->getClientOriginalName());
+        $inputKomik->cover = 'defaultimg.jpg';
+        if ($cover!=null) {
+            $inputKomik->cover = $cover->getClientOriginalName();
+            $tujuan_upload = 'img/';
+            $cover->move($tujuan_upload, $cover->getClientOriginalName());
+        }
+        
 
         $inputKomik->save();
         return redirect('/admin')->with('success', 'Komik berhasil ditambahkan');

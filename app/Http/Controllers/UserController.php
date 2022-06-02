@@ -41,4 +41,30 @@ class UserController extends Controller
     }
 
     // Session index admin belum jalan
+    
+    public function getAllUser()
+    {
+        $data = [
+            'users' => user::all(),
+        ];
+        return view('halaman-admin-getAllUser',$data);
+    }
+
+    public function setIsAdmin($id)
+    {
+        $setAdmin = user::find($id);
+        if ($setAdmin->user_type != 'admin') {
+            $setAdmin->user_type = 'admin';
+        } else {
+            $setAdmin->user_type = 'user';
+        }
+        $setAdmin->save();
+        return redirect('/admin/allUser')->with('success', 'credential berhasil diupdate');
+    }
+
+    public function destroy($id)
+    {
+        user::destroy($id);
+        return redirect('/admin/allUser')->with('success', 'user berhasil dihapus');
+    }
 }

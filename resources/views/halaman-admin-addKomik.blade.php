@@ -7,17 +7,17 @@
       @csrf
       <div class="my-3">
         <label for="form-title" class="form-label">Comic Title</label>
-        <input type="text" class="form-control" id="title" placeholder="" name="title">
+        <input type="text" class="form-control" id="title" placeholder="" name="title" required>
       </div>
 
       <div class="my-3">
         <label for="author" class="form-label">Author</label>
-        <input type="text" class="form-control" id="author" placeholder="" name="author">
+        <input type="text" class="form-control" id="author" placeholder="" name="author" required>
       </div>
 
       <div class="mb-3">
         <label for="synopsis" class="form-label">Synopsis</label>
-        <textarea class="form-control" id="synopsis" rows="3" name="synopsis"></textarea>
+        <textarea class="form-control" id="synopsis" rows="3" name="synopsis" required></textarea>
       </div>
 
       {{-- genres form --}}
@@ -39,13 +39,13 @@
       {{-- price form --}}
       <div class="my-3">
         <label for="form-price" class="form-label">Price</label>
-        <input type="number" class="form-control" id="form-price" name="price">
+        <input type="number" class="form-control" id="form-price" name="price" required>
       </div>
 
       {{-- rating form --}}
       <div class="my-3">
         <label for="form-rating" class="form-label">Rating</label>
-        <input type="number" class="form-control" id="form-rating" placeholder="" name="rate">
+        <input type="number" class="form-control" id="form-rating" placeholder="" name="rate" max="5" required>
       </div>
 
       <div class="my-3 text-center">
